@@ -1,7 +1,7 @@
 <?php
   include ("connect.php");
   $action = $_POST['action'];
-  // echo $action;
+  echo $action;
 if ($action === 'cancel') {
     $doctor_id=$_POST['Did'];
     $slot_id=$_POST['Sid'];

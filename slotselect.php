@@ -66,17 +66,16 @@
   <title>Patient Table</title>
 </head>
 <body class="patient-page">
-
-  <div class="container">
-  <a href="otpverify.php"
-           class="btn btn-primary">Back To Home</a><br>
-    
-    <h2>Doctor Details</h2>
-    <?php
+<div class="admin">
+        <div class='result'>
+         <a href="patient-login.php"><button>Back To Home</button></a><br>
+        </div>
+        <h2>Doctor Details</h2>
+        <div  class="black-slotbox">
+        <?php
                    include ("connect.php");
                  //get doctor id  using url
                      $Doctorid=$_GET['doc_ID'];
-              
                      $doctorinfo=" SELECT * from  
                      doctor dr join department dt on dr.department_id=dt.department_id 
                      where doctor_id=?";
@@ -93,31 +92,30 @@
                        }  
                        echo "<div class='card1'  '>                    
                         <div class='card_body'>
-                            <img src='doctor-detail_sign.jpg'>                        
+                            <img src='./assets/images.jfif'>                        
                         </div>
                         <div class='card-body2'>  
-                         <h4 class='card-title'> $doctor_name</h4>
-                          $doctor_id                   
+                         <h4 class='card-title'> $doctor_name</h4></br>
                          <h6 class='card-title'> $Department_name</h6>         
                         </div>
                         </div>";
                       }
            
                  ?><br>
-    <div class='card1' style='width: 24rem; border:none;'>
-      <form action="" method="post">
-      <label for="datetime">Select a date:</label>
-        <input type="date" class="form-control" id="datetime" name="datetime" required>
-      </form>
-    </div>
-    <div id="slots" style='width: 24rem;'>
-    </div>
-    <!-- <div class="form">hello</div> -->
+            <div class='card1' style='width: 24rem; border:none;'>
+              <form action="" method="post">
+              <label for="datetime">Select a date:</label>
+                <input type="date" class="form-control" id="datetime" name="datetime" required>
+              </form>
+            </div>
+            <div id="slots"  class='slot-result'>
+            </div> 
+        </div>
 
-  </div>
-  <?php 
-
-?>
+        
+    </div>
+<!-- jhhhk -->
+  
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   

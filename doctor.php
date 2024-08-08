@@ -1,10 +1,3 @@
-<style>
-  .card{
-    background-color: rgb(236, 236, 255);
-
-
-}
-</style>
 
     <?php
     include("connect.php"); 
@@ -27,7 +20,7 @@
                    $doctor_name=$row['name'];
 
                   echo"
-                  <form action='slotselect.php' method='post'>
+                  <form  action='slotselect.php' method='post'>
                   <div class='card'  style='width: 18rem;'>
                   <div class='card-body'>
                   
@@ -45,19 +38,3 @@
             }
           }                  
         ?>
-<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-    $('#btn').on('click', function () {
-      
-
-        console.log("Sending doctorid:", centerid); // Verify the data being sent
-        $.ajax({
-          method:"post",
-          url:"slotselect.php",
-          data:{doc_ID:doctorid, Cid:centerid}
-        });
-    });
-  });
-</script> -->

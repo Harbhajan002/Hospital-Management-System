@@ -53,10 +53,13 @@ $stmt = $connect->prepare($sql);
     <title>Patient Table</title>
 </head>
 <body class="patient-page">
-
-    <div class="container">
-      <h3>Patient Resgistration Here...</h3>
-        <form action="" method="post">
+  <div class="admin">
+    <div class='result'>
+         <a href="index.php"><button>Back To Home</button></a><br>
+        </div>
+        <h2>Patient Resgistration Here... </h2>
+        <form class="black-section" action="" method="post" >
+        <!-- <form action="" method="post"> -->
          Select Center
          <select name="centername" id="" class="form-select">
             <?php
@@ -84,12 +87,15 @@ $stmt = $connect->prepare($sql);
          City<input type="text" class="form-control"  name="city" required>  <br>
          Pincode<input type="text" class="form-control"  name="pin" required>  <br>
        
-         <button type="submit" class="btn btn-primary">SIGN UP</button>
-         <button type="submit" class="btn btn-primary">
+         <button type="submit" >SIGN UP</button>
+         <button type="submit" >
             <a href="patient-login.php" >LOG IN</a></button>
        
-        </form>  
+        </form> 
     </div>
+</div>
+<!--  -->
+   
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

@@ -12,13 +12,7 @@
    .card-body{
     margin-left:40px;
    }
-   .container{
-    display: flex;
-    flex-direction: column;
-    margin: 40px;
-    align-items: center;
-    width: 600px;
-   }
+ 
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +26,22 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>Patient Table</title>
 </head>
-
+<style>
+  .result button{
+  width: 150px;
+  }
+  form button{
+    margin-left:50px;
+  }
+</style>
 <body class="patient-page">
-
-<div  class='container'>
-<h2>Appointment Details</h2><br>
-<div class="appoint">
+<div class="admin">
+        <div class='result'>
+         <a href="index.php"><button>Back To Home</button></a><br>
+        </div>
+        <h2>Appointment Details</h2>
+        <div class="black-slotbox">
+  
 
 <?php
       include ("connect.php");
@@ -66,7 +70,7 @@
                 <h6 class='card-title'><span>pid </span> : $patient_id</h6>  
                 <h6 class='card-text'><span>Department</span> :$depart_naam </h6>
                 <input type='hidden' id='action' name='action' value='cancel'> 
-                <button class='btn btn-primary' id='appointment_cancel'>Cancel</button><br>
+                <button ' id='appointment_cancel'>Cancel</button><br>
                </div>
               </form> 
               </div>";
@@ -79,7 +83,7 @@
                         $statement->execute();
                         $result =$statement->get_result();                
                     if ($result->num_rows > 0) {
-                     echo "A";
+                    //  echo "A";
                         $data =$result->fetch_assoc(); 
                         $availableslot =$data['avilable_slot'];
                         $timeArray = json_decode($availableslot); 
@@ -88,16 +92,20 @@
                               unset($timeArray[$key]);
                         }
                         $updateSlot= json_encode(array_values($timeArray));
-                        echo "<input type='text' class='slot'  value='$updateSlot'></input>";
+                        echo "<input type='hidden' class='slot'  value='$updateSlot'></input>";
                         $updated=$connect->prepare("UPDATE doctor_slot_availablity set avilable_slot=?
                         where doctor_id=? and sl_date=?");
                         $updated->bind_param("sis",$updateSlot,$doctor_id,$date);
-                        $updated->execute();
-                        echo "slot updated";
+                       
+                        if ( $updated->execute()) {
+                          echo "<span class='success-message'>Appointment Successfully</span>";
+                        }else{
+                          echo "<span class='error'>Slot Expired</span>";
+                          }
 
                     } else{
                     
-                         echo "B";
+                        //  echo "B";
                         //select unBookeddataslot
                         $timestamp = strtotime($date);
                         $day = date("l", $timestamp);
@@ -108,32 +116,32 @@
 
                          $stmt=$res->get_result();                
                         if ($stmt->num_rows > 0) {
-                         echo "b1<br>";
+                        //  echo "b1<br>";
                          $data =$stmt->fetch_assoc(); 
                          $unBook_slot =json_decode($data['unBook_slot']);
                          if(($key=array_search($slot_time, $unBook_slot))!== false){
                            unset($unBook_slot[$key]);
                          }
                           $updateunBook_slot= json_encode(array_values($unBook_slot));
-                          echo "<input type='text'  class='slot'  value='$updateunBook_slot'></input>";
+                          echo "<input type='hidden'  class='slot'  value='$updateunBook_slot'></input>";
                           //update unBookeddataslot
                           $unBookupdated="UPDATE unBookeddataslot set unBook_slot=?
                          where slot_date =? and doctor_id=?";
                          $updated=$connect->prepare($unBookupdated);
                          $updated->bind_param("ssi",$updateunBook_slot, $date, $doctor_id);
                          if ( $updated->execute()) {
-                           echo "updated successfully";
+                           echo "<span class='success-message'>Appointment Successfully</span>";
                          }else{
-                          echo "not updated";
+                          echo "<span class='error'>Slot Expired</span>";
                           }
                        }else{
-                         echo "b2<br>";
+                        //  echo "b2<br>";
                          $doctor_slot_array="SELECT slot_id from doctor where doctor_id=$doctor_id";
                          $result=$connect->query($doctor_slot_array);
                          if ($result->num_rows>0 ) {
                               $data=$result->fetch_assoc();
                               $doc_slot_id=$data['slot_id'];
-                              echo $doc_slot_id;
+                              // echo $doc_slot_id;
                               $sidArray = json_decode($doc_slot_id, true); 
                               
                         $dateslot_slot_id="SELECT slot_id from dateslot where slot_Day='$day'";
@@ -141,9 +149,9 @@
                         if ($result2->num_rows>0 ) {
                              $data=$result2->fetch_assoc();
                              $slot_id=$data['slot_id'];
-                             echo "$slot_id<br>";
+                            //  echo "$slot_id<br>";
                              if (in_array($slot_id,$sidArray)) {
-                               echo "selected slot id: $slot_id";
+                              //  echo "selected slot id: $slot_id";
                                $time_slot="SELECT slot_id, slot_Time from dateslot where slot_id=$slot_id";
                                $res=$connect->query($time_slot);
                                if ($res->num_rows>0) {
@@ -156,27 +164,28 @@
                              unset($timeArray[$key]);
                              }
                               $updateSlot= json_encode(array_values($timeArray));
-                              echo "<input type='text'  class='slot'  value='$updateSlot'></input>";
+                              echo "<input type='hidden'  class='slot'  value='$updateSlot'></input>";
                                  };
                                }
                              }else{
-                               echo "not any available slot";
-                             }
+                              echo "<span class='error'>No Slot Available</span>";
+                              }
      
                                }
-                            } else{                
-                            echo "no slot available";
-                            }
+                            }else{
+                              echo "<span class='error'>No Slot Available</span>";
+                              }
                                      //insert into new table unBookedDataSlot
                                      $unbookslot ="INSERT into unBookeddataslot (slot_id,doctor_id, slot_date, unBook_slot)
                                      values (?,?,?,?)";
                                     $res=$connect->prepare($unbookslot);
                                              $res->bind_param("iiss", $slot_id, $doctor_id, $date, $updateSlot);
-                                    if ( $res->execute()) {
-                                       echo "dateSlot slot inserted<br>";
-                                     }else{
-                                       echo "data not inserted";
-                                     }
+                                   
+                                     if (  $res->execute()) {
+                                      echo "<span class='success-message'>Appointment Successfully</span>";
+                                    }else{
+                                      echo "<span class='error'>Slot Expired</span>";
+                                      }
                                 }
                     }
                   
@@ -184,9 +193,7 @@
                    };
             ?>
  </div>
- <div id="cancel">
-  hello
- </div>
+
  </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -229,6 +236,7 @@ $(document).ready(function () {
                   data: { Did: did, Pid:pid, Date:date, Time:time, Sid:sid, action: 'cancel'},
                   success:function (res) {
                   $('#cancel').html(res);
+                    console.log(res);
                     
                   }
                 });

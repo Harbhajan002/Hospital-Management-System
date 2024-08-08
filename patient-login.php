@@ -6,10 +6,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){//req to server for post method
 
 if (isset($_POST['mobileno'])) {
     $mobile = $_POST['mobileno'];
+    $patientName = $_POST['patientName'];
 //mobile number verify:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-$sql="SELECT mobile, patient_id from patient WHERE mobile= ?";
+$sql="SELECT mobile, patient_id from patient WHERE mobile= ? and fname=?";
 $statement=$connect->prepare($sql);
-$statement->bind_param("s",$mobile);
+$statement->bind_param("ss",$mobile, $patientName);
 $statement->execute();
 $result =$statement->get_result();
 
@@ -66,7 +67,7 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Hospital.css">
-    <title>Patient Table</title>
+    <title>Patient Login</title>
     <style>
         .error-message{
             color:red;
@@ -75,24 +76,34 @@ else {
 </head>
 
 <body class="patient-page">
-    <div class="container">
-    <a href="index.php"
-           class="btn btn-primary">Back To Home</a><br>
-        <form action="" method="post">
-            <h3>Registered Patients Login</h3>
-            Mobile No<input type="tel" class="form-control" placeholder="Number" name="mobileno" required>
-            <p class="error-message">
-             <?php if (!empty($errorMessage)) {
-            echo " $errorMessage"; 
-           }?>
-           </p>
-                
-
-           <button type="submit" name="get_otp" id="liveToastBtn" 
-           class="btn btn-primary">GET OTP</button><br>
-            <span>New Patient <a href='patient-signup.php'>Click Here</a>To Register</span>
-        </form>
+        <div class="admin">
+        <div class='result'>
+         <a href="index.php"><button>Back To Home</button></a><br>
         </div>
+        <h2>Patient Log In</h2>
+        <form class="black-section" action="" method="post" id="admin">
+            <label class="filled" for="name">Name</label>
+            <input type="text" id="name" name="patientName"  placeholder="Enter Your Name" required>
+
+            <label class="filled" for="unique_id">Number</label>
+            <input type="number" id="unique_id" name="mobileno" placeholder="Number" required>
+            
+            <button type="submit" id="btn_submit">Get Otp</button><br>
+            <span class="msg">
+            <?php if (!empty($errorMessage)) {
+            echo " <p class='error-message'> $errorMessage </p>";  
+           } 
+           if (!empty($successMessage)) {
+            echo "<p class='success-message'> $successMessage </p>"; 
+
+           }?>
+            </span><br>
+            <p>New Patient <a href='patient-signup.php'>Click Here</a>To Register</p>
+            
+
+        </form>
+       
+    </div>
         </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

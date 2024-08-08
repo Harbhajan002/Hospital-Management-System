@@ -1,14 +1,6 @@
-<style>
-    .error-message{
-        color:red;
-    }
-</style>
-
 <?php
 session_start();
-
 include ('connect.php');//accept connection
-
 if (isset($_SESSION['mobile_no'])) {
     $number= $_SESSION['mobile_no'];
     $getcode="SELECT otp_code, expire_time, curr_time FROM otp where mobile=?";
@@ -82,23 +74,30 @@ else {
 </head>
 
 <body class="patient-page">
-    <div class="container">
-   
-            <a href="patient-login.php" 
-             class="btn btn-primary">Back To Home</a><br>
-        <form action="" method="post">
-         
-            <h3>Enter OTP</h3>
-            OTP Verify <?php echo "$otp_code " ?>
-            <input type="text"  class="form-control" name="otpverify" maxlength="6" required>
-           <p class="error-message">
-             <?php if (!empty($errorMessage)) {
-            echo " $errorMessage"; 
-           }?>
-           </p>
+        <div class="admin">
+        <div class='result'>
+         <a href="patient-login.php"><button>Back To Home</button></a><br>
+        </div>
+        <h2>Enter OTP</h2>
+        <form class="black-section" action="" method="post" id="admin">
+        OTP Code : <?php echo "$otp_code " ?>
+            <label class="filled" for="name">OTP Verify</label>
+            <input type="text" id="name" name="otpverify"  maxlength="6"  required>
 
-           <button type="submit" name="get_otp" id="liveToastBtn" class="btn btn-primary">Verify OTP</button><br>
-            <!-- <span>New Patient <a href='patient-signup.php'>Click Here</a>To Register</span> -->
+           
+            
+            <button type="submit" id="btn_submit" name="get_otp" id="liveToastBtn">Get Otp</button><br>
+            <span class="msg">
+            <?php if (!empty($errorMessage)) {
+            echo " <p class='error-message'> $errorMessage </p>";  
+           } 
+           if (!empty($successMessage)) {
+            echo "<p class='success-message'> $successMessage </p>"; 
+
+           }?>
+            </span><br>
+            
+
         </form>
         </div>
         </body>

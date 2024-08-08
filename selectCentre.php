@@ -14,32 +14,14 @@
 
     .doctor {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .card {
         margin: 20px;
+     
     }
 
-    .container {
-        display: flex;
-
-        width: 400px;
-        align-items: center;
-        justify-content: center;
-    flex-direction: column;
-    margin: 40px;
-    align-items: center;
- width: 600px;
- 
-    }
-   
-
-    span {
-        color: rgb(56, 14, 88);
-
-    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,41 +37,32 @@
 </head>
 
 <body class="patient-page">
-
-    <!-- select cender from hospital from -->
-    <div class="container" >
-        <button type="submit">
-            <a href="patient-login.php" class="btn btn-primary">Back To Home</a>
-        </button><br>
-        <h3>Book Appointment</h3><br>
-
-        <select name="hospitalname" id="centerName" class="form-select">
-            <option value='select'>Select Center</option>
-            <?php
-                    include('connect.php');
-                    $sql="SELECT * from centre_name";
-                    $res=$connect->query($sql);
-                    if ($res->num_rows>0) {
-                      while ( $data=$res->fetch_assoc()) {
-                        echo "<option value=".$data['centre_id'].">".$data['name']."</option>";
-                        } 
-                    }
-                    ?>
-        </select>
-    <!-- </div> -->
-        
-        <div class="container" id="data">
-            <!-- <form action="" method="post"> -->
-                <!-- <div class="innercontainer" id="data">
-
-                    
-                </div> -->
-                <!-- <input type="submit" id="submit" class="btn btn-primary" value="View Doctor"> -->
-
-            <!-- </form> -->
-
+    <div class="admin">
+        <div class='result'>
+         <a href="patient-login.php"><button>Back To Home</button></a><br>
         </div>
-                </div>
+        <h2>Book Appointment</h2>
+        <div class="black-section">
+                <select name="hospitalname" id="centerName" class="form-select">
+                    <option value='select'>Select Center</option>
+                    <?php
+                            include('connect.php');
+                            $sql="SELECT * from centre_name";
+                            $res=$connect->query($sql);
+                            if ($res->num_rows>0) {
+                            while ( $data=$res->fetch_assoc()) {
+                                echo "<option value=".$data['centre_id'].">".$data['name']."</option>";
+                                } 
+                            }
+                            ?>
+                </select>
+        </div>
+
+        
+    </div>
+        <div class="admin" id="data">
+        
+        </div>
 
 
 </body>
@@ -107,10 +80,6 @@
             });
         });
     });
-
-
-
-
 
 </script>
 

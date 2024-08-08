@@ -6,15 +6,14 @@
 <?php
 
 include ('connect.php');//accept connection
-if($_SERVER['REQUEST_METHOD']=='POST'){//req to server for post method
 
-if (isset($_POST['docname'])) {
-    $docname = $_POST['docname'];
-    $email = $_POST['email'];
+if (isset($_GET['id'])) {
+    $docid = $_GET['id'];
+    // echo $docid;
 //mobile number verify:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-$sql="SELECT doctor_id, name from doctor WHERE name= ? and email=?";
+$sql="SELECT doctor_id, name from doctor WHERE doctor_id= ? ";
 $statement=$connect->prepare($sql);
-$statement->bind_param("ss",$docname, $email);
+$statement->bind_param("i",$docid);
 $statement->execute();
 $result =$statement->get_result(); 
 
@@ -29,7 +28,7 @@ if ($result->num_rows > 0) {
     $errorMessage="Enter Valid Name";
  }
  }
- } ?>
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +72,7 @@ table{
 
 
 <body class="patient-page">
-    <div class="admin" id="kkk">
+    <div class="admin" >
       <div class='result'>
          <a href="index.php"><button>Back To Home</button></a><br>
         </div>
@@ -82,41 +81,61 @@ table{
             }else{
                 echo " <h2>Doctor Log In</h2>";
             } ?>
-        <form class="black-section" action="" method="post" id="admin">
-            <label class="filled" for="name">Name</label>
-            <input type="text" id="name" name="docname"  placeholder="Enter Your Name" required>
-
-            <label class="filled" for="unique_id">Email</label>
-            <input type="email" id="unique_id" name="email" placeholder="Email" required>
-            
-            <button type="submit" id="btn_submit">Log In</button><br>
-            <span class="msg">
-            <?php if (!empty($errorMessage)) {
-            echo " <span class='error-message'> $errorMessage </span>";  
-           } 
-           if (!empty($successMessage)) {
-            echo "<span class='success-message'> $successMessage </span>"; 
-
-           }?>
-            </span>
-            
-
-        </form>
+        <div class="doctor-dashboard" action="" method="post" id="admin">
         <?php if (!empty($successMessage)) {
                     //verify mobile number with patient table 
               echo "<br>
-              <div class='result'>
-             <a href='doctor-dashboard.php? id=$doctor_ID'><button >View Dashboard</button></a>
+              <div class='option-btn'>
+              <button  id='doctor_slot'>Change slot</button>
+            
+             <button  id='appointments'>Appointments</button>
              </div>";
 
             }
            ?>
+           <div class="right" id="kkk">
+            hello
+           </div>
+        </div>
+       
     </div>
 </body>
 <!--makesh 99919 91296 -->
 
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    
+        $('#doctor_slot').on('click', function () {
+            var seleted_doctor_id ='<?php echo $doctor_ID;?>';
+         console.log(seleted_doctor_id);
+            $.ajax({
+                url: 'DOCTOR_slot.php',
+                method: 'POST',
+                 data: {select_d_id: seleted_doctor_id},
+                success: function (response) {
+                    $('#kkk').html(response);
+                }
+            });
+        });
+        $('#appointments').on('click', function () {
+            var seleted_doctor_id ='<?php echo $doctor_ID;?>';
+            console.log(seleted_doctor_id);
+         
+            $.ajax({
+                url: 'DOCTOR_appointments.php',
+                method: 'POST',
+                 data: {select_d_id: seleted_doctor_id},
+                success: function (response) {
+                    $('#kkk').html(response);
+                }
+            });
+        });
+
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

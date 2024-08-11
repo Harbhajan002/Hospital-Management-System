@@ -35,11 +35,11 @@ if ($result->num_rows > 0) {
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Hospital.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Doctor Login</title>
     <style>
 
@@ -63,9 +63,7 @@ if ($result->num_rows > 0) {
     height: 20px;
     width: 34px;
 }
-table{
-    border:1px solid;
-}
+
 
     </style>
 </head>
@@ -89,12 +87,15 @@ table{
               <button  id='doctor_slot'>Change slot</button>
             
              <button  id='appointments'>Appointments</button>
+          
+             <a href='history_dashboard.php? doctor-id=$docid '> <button  id='appointments'>History</button></a>
+
              </div>";
 
             }
            ?>
-           <div class="right" id="kkk">
-            hello
+           <div class="right " id="kkk">
+            
            </div>
         </div>
        
@@ -122,7 +123,7 @@ table{
         });
         $('#appointments').on('click', function () {
             var seleted_doctor_id ='<?php echo $doctor_ID;?>';
-            console.log(seleted_doctor_id);
+            console.log(typeof(seleted_doctor_id));
          
             $.ajax({
                 url: 'DOCTOR_appointments.php',

@@ -12,9 +12,7 @@
     font-size: larger;
     font-weight: 600;
 }
-.success{
-  color:green;
-}
+
     
   </style>
   <?php
@@ -28,7 +26,7 @@ if(isset($_POST['seleted_doctor_id'])) {
     where doctor_id = $D_ID and sl_date = '$D_Date'";
     $result=$connect->query($selectUpdatedSlot); 
  if ($result->num_rows>0 ) {
-  echo "A";
+  // echo "A";
    while($data=$result->fetch_assoc()){
     $slot_id=$data['slot_id'];
     $time =$data['avilable_slot'];
@@ -42,13 +40,14 @@ if(isset($_POST['seleted_doctor_id'])) {
    }
    echo " </div>";
 }else
-  {   echo "B";
+  {   
+    // echo "B";
     $unBookeddataslot="SELECT * from unBookeddataslot 
      where doctor_id = $D_ID and slot_date = '$D_Date'";
         $result=$connect->query($unBookeddataslot); 
 
             if ($result->num_rows>0 ) {
-              echo "b1";
+              // echo "b1";
               while($data=$result->fetch_assoc()){
                $slot_id=$data['slot_id'];
                 $time =$data['unBook_slot'];
@@ -62,13 +61,13 @@ if(isset($_POST['seleted_doctor_id'])) {
                }
                echo " </div>";   
                } else{
-                echo "c";
+                // echo "c";
                 $doctor_slot_array="SELECT slot_id from doctor where doctor_id=$D_ID";
                 $result=$connect->query($doctor_slot_array);
                 if ($result->num_rows>0 ) {
                      $data=$result->fetch_assoc();
                      $doc_slot_id=$data['slot_id'];
-                     echo $doc_slot_id;
+                    //  echo $doc_slot_id;
                      $sidArray = json_decode($doc_slot_id, true); 
                      
                $dateslot_slot_id="SELECT slot_id from dateslot where slot_Day='$dayOfWeek'";
@@ -76,9 +75,9 @@ if(isset($_POST['seleted_doctor_id'])) {
                if ($result2->num_rows>0 ) {
                     $data=$result2->fetch_assoc();
                     $slot_id=$data['slot_id'];
-                    echo "$slot_id<br>";
+                    // echo "$slot_id<br>";
                     if (in_array($slot_id,$sidArray)) {
-                      echo "selected slot id: $slot_id";
+                      // echo "selected slot id: $slot_id";
                       $time_slot="SELECT slot_id, slot_Time from dateslot where slot_id=$slot_id";
                       $res=$connect->query($time_slot);
                       if ($res->num_rows>0) {
@@ -96,11 +95,11 @@ if(isset($_POST['seleted_doctor_id'])) {
                         
                       }
                     }else{
-                      echo "not any available slot";
+                      echo "<p class='error'>not any available slot <p>";
                     }
                }
                        } else{                
-                         echo "no slot available";
+                         echo "no slot available <br>";
                        }
                }
          

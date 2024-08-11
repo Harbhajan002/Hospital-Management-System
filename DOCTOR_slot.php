@@ -1,4 +1,4 @@
-<div class='card1' style='width: 24rem; border:none;'>
+<div class='card1' style='border:none;'>
       <form action="" method="post">
       <label for="datetime">Select a date:</label>
         <input type="date" class="form-control" id="datetime" name="datetime" required>

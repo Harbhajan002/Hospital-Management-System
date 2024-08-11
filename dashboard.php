@@ -2,13 +2,13 @@
 include("dashboard-header.php");
 ?>
 <div class="main">
-    <div class="left">
+    <div class="left ">
         <ul>
-           <li>hello</li>
 
-
-
-            <li><a href="patient-login.php"><button>Book Appointment</button></a></li>
+           <li><a href="DOCTOR-Signup.php"><button>Doctor Sign Up</button></a></li>
+            <li><button>Patient List</button></li>
+            <li><button>Doctor List</button></li>
+            <li><button>Appointments</button></li>
         </ul>
     </div>
 <div class="right">
@@ -52,7 +52,6 @@ include("connect.php");
 ?>
     </table>
 
-    <a href="Login.php">Back to Login</a>
 </div>
 </div>
 

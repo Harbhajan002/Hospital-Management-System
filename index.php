@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" -->
-        <!-- integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="Hospital.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <title>Patient Table</title>
@@ -28,8 +28,28 @@
                     
                     <li><a href="patient-login.php"><button>Book Appointment</button></a></li>
                 </ul>
+                
             </div>
+            <div class="hambarger" id="hambarger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            
         </header>
+    </div>
+    <div class="side-menu active" id="side_menu">
+    <ul>
+                    <a href="#"><li>HOME</li></a>
+                    <a href="#service"> <li>SERVICE</li></a>
+                    <a href="#about"><li>ABOUT US</li></a>
+                    <a href=""><li>CONTACT</li></a>
+                   
+                    
+                    
+                    <li><a href="patient-login.php"><button>Book Appointment</button></a></li>
+                </ul>
+                
     </div>
     <div class="main-container">
        <div class="silder-section">
@@ -71,15 +91,18 @@
        
         <div class="about-content" >
             <h2>About Medical</h2>
-            <p>We realised that it is not merely a transaction of health services between a patient and doctor. It is trust that fosters a healthy relationship in the journey of health.
-<br>
-As we move with the times, we realise that technology has a huge role in making our services way more efficient. And by its application, way more human as well.
-<br>
-We have a dream. Our dream is to be available to you round the clock, wherever you are and whenever you want. We want to be just one tap away from you, and this will be the beginning of consumer-centric healthcare.</p>
-            <p><ul><li>Symptoms and Diagnosis</li>
-<li>Treatment and Medications</li>
-<li>Preventive Measures and Lifestyle Changes</li><li>
-Follow-up and Additional Concerns</li></ul></p>
+        <p>We realised that it is not merely a transaction of health services between a patient and doctor. It is trust that fosters a healthy relationship in the journey of health.
+        <br>
+        As we move with the times, we realise that technology has a huge role in making our services way more efficient. And by its application, way more human as well.
+        <br>
+        We have a dream. Our dream is to be available to you round the clock, wherever you are and whenever you want. We want to be just one tap away from you, and this will be the beginning of consumer-centric healthcare.
+        </p>
+        <p>
+        <ul><li>Symptoms and Diagnosis</li>
+        <li>Treatment and Medications</li>
+        <li>Preventive Measures and Lifestyle Changes</li><li>
+        Follow-up and Additional Concerns</li></ul>
+        </p>
         </div>
        </div>
        <div class="about-our">
@@ -160,5 +183,14 @@ Follow-up and Additional Concerns</li></ul></p>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+<script>
+  const hambarger=  document.getElementById("hambarger");
+  const side_menu=  document.getElementById("side_menu");
+  hambarger.addEventListener("click",  ()=>{
+  console.log(hambarger);
 
+    side_menu.classList.toggle('active');
+    // side_menu.classList.toggle('view');
+  });
+</script>
 </html>

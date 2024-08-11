@@ -70,11 +70,12 @@
                 <h6 class='card-title'><span>pid </span> : $patient_id</h6>  
                 <h6 class='card-text'><span>Department</span> :$depart_naam </h6>
                 <input type='hidden' id='action' name='action' value='cancel'> 
-                <button ' id='appointment_cancel'>Cancel</button><br>
+                  <button ' id='appointment_cancel'>Cancel</button><br>
                </div>
               </form> 
               </div>";
                      }
+                   
                     //stage 2
                     $selectBookAppointment=" SELECT * from doctor_slot_availablity where
                     doctor_id=? and sl_date=?";
@@ -237,9 +238,10 @@ $(document).ready(function () {
                   success:function (res) {
                   $('#cancel').html(res);
                     console.log(res);
-                    
+                    window.location.href = 'index.php';
                   }
                 });
+
       }else{
         $.ajax({
                   url: 'pda.php',

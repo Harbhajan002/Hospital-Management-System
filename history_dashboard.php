@@ -1,27 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Canceled Appointment Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Hospital.css"> 
+    <title>Cancle Appointment List</title>
+    <style>
+     .admin .black-slotbox {
+        width: 80%;
+     }
+     @media (max-width:767px) {
+        .admin .black-slotbox {
+        width: 100%;
+     }
+     }
+     
+    </style>
 </head>
-<body>
-
-<table class="table"  id="history_table">
+<body class="patient-page">
+    <div class="admin" >
+      <div class='result'>
+         <a href="index.php"><button>Back To Home</button></a><br>
+        </div>
+       
+            
+        <div class="black-slotbox" action="" method="post" id="admin">
+       
+        <table class="table"  id="history_table">
     <tr>
         <th>Patient</th>
         <th>Slot</th>
         <th>Doctor</th>
-        <th>Date</th>
+        <th colspan="2">Date</th>
         <th>Time</th>
+        <th>Status</th>
     </tr>
 <?php
 include("connect.php");
-if (isset($_POST['Appoint_id'])) {
+if (isset($_POST['Appoint_id'] ) && isset($_POST['status'])) {
     $Id = $_POST['Appoint_id'];
-    file_put_contents('post_data.log', print_r($_POST, true));
-    echo $Id;
-    $cancel = "SELECT * FROM appointment WHERE Appointment_id = ?";
-    $stmt_cancel = $connect->prepare($cancel);
-    $stmt_cancel->bind_param("i", $Id);
+    $status = $_POST['status'];
+        // status update pending to cancle
+            $update_status ="UPDATE appointment set status=?
+            where Appointment_id =? ";
+            $updated=$connect->prepare($update_status);
+            $updated->bind_param("si",$status, $Id);
+            if ( $updated->execute()) {
+            echo "<span class='success-message'>Update Successfully</span>";
+            }else{
+            echo "<span class='error'>Slot Expired</span>";
+            }
+        }            
+    // file_put_contents('post_data.log', print_r($_POST, true));
+    // Assign the values to variables
+    if (isset($_GET['doctor-id'] ) ){
+    $doctor_id= (int)$_GET['doctor-id'] ;
+
+    echo "Doctor ID: HD000$doctor_id <br>";
+
+    }
+    $status1 = "Cancle";
+    $status2 = "Finish";
+    $history = "SELECT * FROM appointment WHERE (status = ? OR status = ?)  And doctor_id=? ";
+    $stmt_cancel = $connect->prepare($history);
+    $stmt_cancel->bind_param("ssi", $status1 , $status2, $doctor_id);
     $stmt_cancel->execute();
     $result_cancel = $stmt_cancel->get_result();
 
@@ -32,25 +74,37 @@ if (isset($_POST['Appoint_id'])) {
             $did = $data['doctor_id'];
             $date = $data['appoint_date'];
             $time = $data['appoint_time'];
-            echo "<tbody>
-            <tr>
-                    <td>$pid</td>
+            $status = $data['status'];
+            $patient="SELECT fname, lname from patient where patient_id= $pid";
+            $rows=$connect->query($patient);
+                        
+            if ($rows->num_rows>0) {
+            $data=$rows->fetch_assoc();
+            $fname= $data['fname'];
+            $lname= $data['lname'];
+            }
+            $rowColor = ($status == "Cancle") ? "style='background-color:red;'" : (($status == "Finish") ? "style='background-color:green;'" : "");
+
+        echo "<tbody>
+        <tr $rowColor>
+                    <td>$fname</td>
                     <td>$sid</td>
                     <td>$did</td>
-                    <td>$date</td>
+                    <td  colspan='2'>$date</td>
                     <td>$time</td>
+                    <td>$status</td>
                 </tr></tbody>";
-        }
-    } else {
-        echo "<tr><td colspan='5'>No appointment found</td></tr>";
-    }
-} else {
-    echo "<tr><td colspan='5'>Data not received</td></tr>";
-}
-?>
-</table>
-
-<a href="Login.php">Back to Login</a>
+            }
+                    } 
+                    else {
+                        echo "<tr><td colspan='6' style='background-color:red;'>No appointment found</td></tr>";
+                    }
+               
+                ?>
+                </table>
+        </div>
+       
+    </div>
 
 </body>
 </html>

@@ -2,43 +2,7 @@
     a{
         color:white;
     }
-    .btn{
-        margin: 40px;
-        width:80px;
-        color:white;   
-    }
-    .container{
-        display: flex;
-        align-items: center;
-        margin-top:80px;
-        justify-content: center;
 
-    }
-    .card2{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(213, 213, 247);
-        flex-direction: column;
-        padding-top:20px;
-        border-radius:10px;
-        box-shadow: 1px 1px;
-
-        border:1px solid rgb(203, 213, 247);
-    }
-   
-    .cart2:hover{
-        box-shadow: 2px 2px;
-      
-    }
-    p{
-        margin-left: 40px;
-    }
-    h3 .text{
-        color: rgb(83, 83, 83);
-
-
-    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +36,7 @@
         echo  "<h5>Your MR. No : ".$_SESSION['mr']."</h5>"; ?>
         
         
-            <a href="selectCentre.php" class="btn btn-primary">Book</a>
+            <a href="patient-login.php" class="btn btn-primary">Book</a>
        
         </div>
        

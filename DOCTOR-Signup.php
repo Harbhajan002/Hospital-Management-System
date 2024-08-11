@@ -1,88 +1,3 @@
-<style>
-  input {
-    width: 100%;
-  }
-
-  .secparent {
-    /* width: 600px; */
-    display: flex;
-
-  }
-
-  .parent {
-    display: flex;
-    margin: 30px;
-    align-items: center;
-    justify-content: center;
-
-    /* width: 200px; */
-
-  }
-
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid;
-    background-color: rgb(33 21 47);
-
-    border-radius: 10px;
-  opacity: 0.9;
-  color:white;
-  }
-
-  .slotdiv {
-    /* text-align: center; */
-    margin: 10px;
-    display: flex;
-    /* flex-wrap: wrap; */
-    /* width: 500px; */
-    justify-content: center;
-
-    height: auto;
-    gap: 17px;
-  }
-
-  .slotdiv p {
-    background-color: #F4EDCC;
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    /* Display labels in the same row */
-    flex-direction: column;
-
-    margin-bottom: 10px;
-    /* Add some bottom margin for spacing */
-  }
-
-  span {
-    font-size: larger;
-    font-weight: 600;
-  }
-
-  .btnn {
-    display: flex;
-    justify-content: center;
-
-  }
-
-  .btnn a {
-    margin-left: 20px;
-  }
-
-  p {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .a1container {
-    width: 100%;
-    margin: 20px;
-  }
-  .success{
-    color:green;
-  }
-</style>
 <?php
 include ('connect.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -118,14 +33,114 @@ if ($stmt->execute() ) {
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="Hospital.css"> -->
   <title>Patient Table</title>
+  <style>
+    .doc-section{
+      display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 1px solid;
+    padding: 40px;
+    border-radius: 5px;
+    background-color: black;
+    opacity: 0.7;
+    color: #fff;
+    }
+  input, select {
+    width: 100%;
+  }
+  .secparent {
+    display: flex;
+  }
+  .parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    background-color: rgb(33 21 47);
+
+    border-radius: 10px;
+  opacity: 0.9;
+  color:white;
+  }
+
+  .slotdiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: auto;
+  }
+
+  .slotdiv p {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+
+    height: 35px;
+    margin-top: 25px;
+    border: 2px solid rgb(255, 150, 255);
+    border-radius: 10px;
+    font-size: 15px;
+    background: #cf3fff;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+    width: auto;
+  }
+  .slotdiv p input{
+    height:10px;
+  }
+  span {
+    font-size: larger;
+    font-weight: 600;
+  }
+
+  .btnn {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .btnn a {
+    margin-left: 20px;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .a1container {
+    width: 100%;
+    margin: 20px;
+  }
+  .success{
+    color:green;
+  }
+  @media (max-width:767px) {
+    .secparent {
+    flex-direction:column;
+  }
+  .a1container {
+    margin: 0px;
+  }
+  .slotdiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  }
+
+  </style>
 </head>
 <body class="patient-page">
-
-
   <div class="parent">
-    <div class="container2">
+    <div class="admin">
       <h2>Doctor Details</h2>
-      <form action="" method="post">
+      <form class="doc-section" action="" method="post">
         <div class="secparent">
           <div class="a1container">
             First Name<input type="text" class="form-control" placeholder="name" name="fname" required><br>
@@ -134,7 +149,7 @@ if ($stmt->execute() ) {
           </div>
           <div class="a1container">
             Consultant Fees<input type="text" class="form-control" placeholder="Fee's" name="fees" required> <br>
-            Select Center
+            Select Center <br>
             <select name="centrename" id="centreName" class="form-select">
               <option value='select'>Select Center</option>
               <?php
@@ -172,10 +187,13 @@ if ($stmt->execute() ) {
           <p> <input type="checkbox" name="day[]" id="checkbox_saturday" value="6">
             <label for="checkbox_saturday">Saturday</label>
           </p>
+          <p> <input type="checkbox" name="day[]" id="checkbox_sunday" value="7">
+            <label for="checkbox_sunday">Sunday</label>
+          </p>
         </div>
         <div class="btnn">
-          <button type="submit" class="btn btn-primary">SIGN UP</button>
-          <a href="DOCTOR-Login.php" class="btn btn-primary">LOG IN</a><br>
+          <button type="submit" >SIGN UP</button>
+          <a href="DOCTOR-Login.php" ><button >LOG IN</button></a><br>
          <p class="success"> <?php if (!empty($success)) {
             echo $success; 
            }?><p>

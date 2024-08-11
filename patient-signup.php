@@ -31,14 +31,17 @@ $sql="insert into patient (select_center, fname, lname ,gender, mobile , email, 
 $stmt = $connect->prepare($sql);
     $stmt->bind_param("ssssssssssss",$centername, $fname, $lname, $gender, $mno, $email, $dob, $address, $state, $city, $pin, $mr);
 
-    if ($stmt->execute()) {
-      header("location:thanks.php");
-    } else {
-        echo "Error: " . $sql . "<br>" . $connect->error;
-    }
-
-    $stmt->close();
-    $connect->close();
+    try {
+      if ($stmt->execute()) {
+          header("location:thanks.php");
+      }
+  } catch (mysqli_sql_exception $e) {
+      if ($e->getCode() == 1062) { // Error code for duplicate entry
+          $error_msg= "<p style='color:red;'>Error: Mobile number already exists. Please use a different mobile number.</p>";
+      } else {
+          echo "Error: " . $e->getMessage();
+      }
+  }
 }
 ?>
 
@@ -58,6 +61,13 @@ $stmt = $connect->prepare($sql);
          <a href="index.php"><button>Back To Home</button></a><br>
         </div>
         <h2>Patient Resgistration Here... </h2>
+        <p>
+            <?php 
+                  if (isset($error_msg)) { // Error code for duplicate entry
+                      echo $error_msg;
+                  } 
+              ?>
+        </p>
         <form class="black-section" action="" method="post" >
         <!-- <form action="" method="post"> -->
          Select Center

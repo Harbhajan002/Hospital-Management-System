@@ -13,6 +13,7 @@
 
 <body>
     <div class="section-a">
+    
         <header>
             <div class="logo"><img src="./assets/lgo-removebg.png" alt="">
                 <p>Hospital</p>
@@ -106,8 +107,9 @@
         </div>
        </div>
        <div class="about-our">
-        <div> <h2>Welcome to Hospital</h2>
-        <p>Lorem ipsum dolor si voluptate tenetur quia! Ad, molestiae.</p></div>
+        <div> <h2>Doctors, Life Savers</h2>
+        <p>Our superspecialist doctors provide the highest quality of care through a team-based, doctor-led model. Trained at some of the world's most renowned institutions, our highly experienced doctors are distinguished experts in their respective specialities. Our doctors work full-time and exclusively across Medanta hospitals. In addition to offering superspecialised care in their own field, the Medanta organisational structure enables every doctor to help create a culture of 
+            collaboration and multispecialty care integration.</p></div>
        
        </div>
        <div class="services" id="service">

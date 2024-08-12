@@ -75,38 +75,6 @@ if (isset($_POST['admin_name'])) {
 </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('#doctor_slot').on('click', function () {
-            var seleted_doctor_id = '<?php echo $doctor_ID;?>';
-            console.log(seleted_doctor_id);
-            $.ajax({
-                url: 'DOCTOR_slot.php',
-                method: 'POST',
-                data: { select_d_id: seleted_doctor_id },
-                success: function (response) {
-                    $('#kkk').html(response);
-                }
-            });
-        });
-        $('#appointments').on('click', function () {
-            var seleted_doctor_id = '<?php echo $doctor_ID;?>';
-
-            $.ajax({
-                url: 'DOCTOR_appointments.php',
-                method: 'POST',
-                data: { select_d_id: seleted_doctor_id },
-                success: function (response) {
-                    $('#kkk').html(response);
-                }
-            });
-        });
-
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

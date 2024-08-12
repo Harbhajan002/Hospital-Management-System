@@ -204,15 +204,15 @@
 $(document).ready(function () {
   $(".slot").each(function() {
     var slotValue = $(this).val();
-    console.log(slotValue);
+    // console.log(slotValue);
     $.ajax({
       url: 'DOCTOR_appointments.php',
       method: 'POST',
       data: { slot: slotValue },
       success: function(response) {
         // Handle successful response
-        console.log("AJAX request successful. Response:", response);
-        console.log("Data sent:", slotValue);
+        // console.log("AJAX request successful. Response:", response);/
+        // console.log("Data sent:", slotValue);
       },
       error: function(xhr, status, error) {
         // Handle errors
@@ -249,6 +249,7 @@ $(document).ready(function () {
                   data: { Did: did, Pid:pid, Date:date, Time:time, Sid:sid, action: 'update'},
                   success:function (res) {
                   $('#cancel').html(res);
+                    console.log(res);
                     
                   }
                 });

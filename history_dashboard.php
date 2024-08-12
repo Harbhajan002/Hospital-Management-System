@@ -37,20 +37,7 @@
     </tr>
 <?php
 include("connect.php");
-if (isset($_POST['Appoint_id'] ) && isset($_POST['status'])) {
-    $Id = $_POST['Appoint_id'];
-    $status = $_POST['status'];
-        // status update pending to cancle
-            $update_status ="UPDATE appointment set status=?
-            where Appointment_id =? ";
-            $updated=$connect->prepare($update_status);
-            $updated->bind_param("si",$status, $Id);
-            if ( $updated->execute()) {
-            echo "<span class='success-message'>Update Successfully</span>";
-            }else{
-            echo "<span class='error'>Slot Expired</span>";
-            }
-        }            
+
     // file_put_contents('post_data.log', print_r($_POST, true));
     // Assign the values to variables
     if (isset($_GET['doctor-id'] ) ){
@@ -97,7 +84,7 @@ if (isset($_POST['Appoint_id'] ) && isset($_POST['status'])) {
             }
                     } 
                     else {
-                        echo "<tr><td colspan='6' style='background-color:red;'>No appointment found</td></tr>";
+                        echo "<tr><td colspan='7' style='background-color:red; text-align:center;'>No appointment found</td></tr>";
                     }
                
                 ?>

@@ -34,7 +34,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="Hospital.css">
    <style>
-    
+   
     header .logo2{
     float: left;
     padding-left: 30px;
@@ -66,11 +66,16 @@
     border: 2px solid rgb(255, 150, 255);
     border-radius: 10px;
     font-size: 15px;
-    background: #cf3fff;
+    background-color: #cf3fff;
     cursor: pointer;
     padding: 10px ;
     color:white;
 }
+  
+.main ul li button.active-btn {
+    background-color: green;
+}
+    /* style active */
 table {
         width: 80%;
         border-collapse: collapse;
@@ -148,7 +153,13 @@ table {
     color: white;
     width: auto;
 }
-
+.doctor-dashboard .right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center
+}
     @media (max-width:767px) {
         /* header section */
         .menu2{
@@ -169,14 +180,20 @@ table {
     height:auto;
         position:static;
     }
+  .main .doctor-dashboard{
+    margin-left: 0px;
+    width: 100%;
 
+  }
+  .doctor-dashboard .right{
+    padding:0px;
+  }
     .main .right{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content:center;
-        width: 100%;
+        align-items: start;
+        overflow-y: auto;
         margin-left: 0px;
+        width: 100%;
+
     }
     .logo2 h2{
         display: none;

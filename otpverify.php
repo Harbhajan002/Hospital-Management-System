@@ -71,6 +71,19 @@ else {
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Hospital.css">
     <title>Patient Table</title>
+    <style>
+        p{
+            margin-bottom:0px;
+        }
+        p span{
+            margin-left:20px;
+         letter-spacing: 10px;
+        }
+        span img{
+            width: 20px;
+            height:20px;
+        }
+    </style>
 </head>
 
 <body class="patient-page">
@@ -80,8 +93,15 @@ else {
         </div>
         <h2>Enter OTP</h2>
         <form class="black-section" action="" method="post" id="admin">
-        OTP Code : <?php echo "$otp_code " ?>
-            <label class="filled" for="name">OTP Verify</label>
+         <p>Code:   <span id="otpDisplay"><img src="./assets/load.gif" alt=""></span></p>
+          
+                    <script>
+                    setTimeout(function() {
+                    // Replace '123456' with the actual OTP code from your PHP variable
+                    document.getElementById('otpDisplay').textContent = "<?php echo $otp_code; ?>";
+                    }, 5000); // 5000 milliseconds = 5 seconds
+                    </script>
+            <label class="filled" for="name"> Verify Code</label>
             <input type="text" id="name" name="otpverify"  maxlength="6"  required>
 
            

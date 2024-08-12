@@ -47,15 +47,17 @@ if(isset($_POST['select_d_id'])) {
       $date=  $data['appoint_date'];
       $time= $data['appoint_time'];
       $status= $data['status'];
+      if (isset($data['patient_id'])) {
+        $patient="SELECT fname, lname from patient where patient_id= $pid";
+        $rows=$connect->query($patient);
                     
-$patient="SELECT fname, lname from patient where patient_id= $pid";
-$rows=$connect->query($patient);
-             
-if ($rows->num_rows>0) {
-$data=$rows->fetch_assoc();
-$fname= $data['fname'];
-$lname= $data['lname'];
-}
+        if ($rows->num_rows>0) {
+        $data=$rows->fetch_assoc();
+        $fname= $data['fname'];
+        $lname= $data['lname'];
+        }
+      }
+     
 echo "
 <tr class='patient' data-id='$appointId'>
 
@@ -93,29 +95,50 @@ $(document).ready(function () {
     $(document).on('click', '#finish',  function (){
       console.log("finish");
       status = "Finish";
-      $(this).closest('tr').addClass('green');
+      $row = $(this).closest('tr');
+      $row.addClass('green');
         var appointId = $(this).closest('tr').attr('data-id');
         console.log("AppointId of finish: " + appointId);
         if (confirm("You are sure to finish appointment")) {
-      
+      // show history table when status not pending
         $.ajax({
                   url: 'history_dashboard.php',
                   method: 'POST',
                   data: { Appoint_id: appointId, status: status},
                   success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                    }
                 });
+
+                // update appointment status
+                $.ajax({
+                  url: 'appointment_status.php',
+                  method: 'POST',
+                  data: { Appoint_id: appointId, status: status},
+                  success: function(response) {
+                    if (response.trim()==="Success") {
+                          console.log($(this).closest('tr'));
+                          
+                            $row.fadeOut(1000);
+                        
+                          } else {
+                            console.log("not updated service");                            
+                          }
+                   }
+                });
+
               }else{
                 console.log("Cancle opertion");
+
 
               }
     })
     // cancle
     $(document).on('click', '#cancle',  function (){
-      console.log("cancle");
+      console.log("cancle",$(this).closest('tr'));
       status = "Cancle";
-      $(this).closest('tr').addClass('red');
+      $row = $(this).closest('tr');
+      $row.addClass('red');
         var appointId = $(this).closest('tr').attr('data-id');
         console.log(" AppointId: " + appointId);
 
@@ -125,8 +148,27 @@ $(document).ready(function () {
                   method: 'POST',
                   data: { Appoint_id: appointId, status: status},
                   success: function(response) {
-                    console.log(response);
+                    // console.log(response);
+
                    },
+                });
+
+                 // update appointment status
+                 $.ajax({
+                  url: 'appointment_status.php',
+                  method: 'POST',
+                  data: { Appoint_id: appointId, status: status},
+                  success: function(response) {
+                    console.log(response);
+                        if (response.trim()==="Success") {
+                          console.log($(this).closest('tr'));
+                          
+                            $row.fadeOut(1000);
+                        
+                          } else {
+                            console.log("not updated service");                            
+                          }
+                   }
                 });
               }else{
                 console.log("Cancle opertion");

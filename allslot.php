@@ -20,7 +20,7 @@ if(isset($_POST['doctor_Id']) && ($_POST['Date'])) {
                   where doctor_id = $D_ID and sl_date = '$D_Date'";
                   $result=$connect->query($selectUpdatedSlot); 
                if ($result->num_rows>0 ) {
-                echo "A";
+                // echo "A";
                  while($data=$result->fetch_assoc()){
                   $slot_id=$data['slot_id'];
                   $time =$data['avilable_slot'];

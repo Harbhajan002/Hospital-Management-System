@@ -42,7 +42,15 @@ if ($result->num_rows > 0) {
 
     <title>Doctor Login</title>
     <style>
-
+.doctor-dashboard{
+    display:flex;
+    /* align-items: center; */
+    width: 100%;
+    padding:40px;
+    background-color: black;
+    opacity: 0.7;
+    color: #fff;
+}
 .date{
     margin-top:40px;
     margin-left:70px;
@@ -63,7 +71,14 @@ if ($result->num_rows > 0) {
     height: 20px;
     width: 34px;
 }
+@media (max-width:767px) {
 
+.doctor-dashboard{
+        flex-direction: column;
+        border-radius: 5px;
+       
+    }
+}
 
     </style>
 </head>
@@ -131,6 +146,7 @@ if ($result->num_rows > 0) {
                  data: {select_d_id: seleted_doctor_id},
                 success: function (response) {
                     $('#kkk').html(response);
+                    
                 }
             });
         });

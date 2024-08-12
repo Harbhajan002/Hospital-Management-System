@@ -15,6 +15,7 @@ VALUES (?,?,?,?,?,?,?)";
 $stmt=$connect->prepare($doctor);
 $stmt->bind_param("ssssiis",$fname,$mno,$email,$fees,$centrename,$department,$slotarray);
 if ($stmt->execute() ) {
+
   $success= 'Doctor Register Successfully.';
 }else{
   $error= 'Please Enter Correct Information.';
@@ -32,7 +33,7 @@ if ($stmt->execute() ) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="Hospital.css"> -->
-  <title>Patient Table</title>
+  <title>Doctor Signup</title>
   <style>
     .doc-section{
       display: flex;
@@ -79,21 +80,18 @@ if ($stmt->execute() ) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
-
-    height: 35px;
-    margin-top: 25px;
     border: 2px solid rgb(255, 150, 255);
     border-radius: 10px;
     font-size: 15px;
     background: #cf3fff;
-    margin-right: 20px;
+    margin: 20px 20px 10px 0px;
     cursor: pointer;
     color: white;
     width: auto;
+    padding:0px 5px;
   }
   .slotdiv p input{
-    height:10px;
+    height:20px;
   }
   span {
     font-size: larger;
@@ -120,7 +118,10 @@ if ($stmt->execute() ) {
     margin: 20px;
   }
   .success{
-    color:green;
+    margin-top:10px;
+    width: 100%;
+    text-align:center;
+    color: rgb(60 241 60);
   }
   @media (max-width:767px) {
     .secparent {
@@ -194,11 +195,11 @@ if ($stmt->execute() ) {
         <div class="btnn">
           <button type="submit" >SIGN UP</button>
           <a href="DOCTOR-Login.php" ><button >LOG IN</button></a><br>
-         <p class="success"> <?php if (!empty($success)) {
+        
+        </div>
+        <p class="success"> <?php if (!empty($success)) {
             echo $success; 
            }?><p>
-        </div>
-
       </form>
     </div>
 

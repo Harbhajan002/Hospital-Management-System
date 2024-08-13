@@ -14,13 +14,13 @@ color: rgb(0, 0, 0);
 width: 100%;
 height: 75px;
 /* position: fixed; */
-border-bottom: 1px solid black;
 line-height: 75px;
 position: fixed;
 top: 0;
 z-index: 5;
+box-shadow: 0 3px 17px rgba(0, 0, 0, 0.4);
 }
-header .hambarger {
+header .hamburger {
     display: none;
 }
 header .logo{
@@ -89,8 +89,29 @@ width: auto;
 .menu ul li:hover{
     color: red;
 }
+
+/* hamburager */
+.hamburger .line{
+    margin: 5px 0px;
+    width: 35px;
+    border: 2px solid rgb(0, 0, 0);
+    transition: all 0.3s ease;
+
+  }
+  .hamburger.cross .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.cross .line:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+    display: none;
+}
+
+.hamburger.cross .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
 /* side menu */
-.side-menu{
+/* .side-menu{
     margin-top: 75px;
     width: 100%;
     background: url(./assets/hospital.jpg);
@@ -98,7 +119,43 @@ width: auto;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    transition: 3s ease-in-out linear;
+    transition: opacity .3s ease-in-out;
+} */
+/* Default styles for the sidebar (hidden above the viewport) */
+.side-menu {
+    position: fixed;
+    /* top: -100%; */
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    background: url(./assets/hospital.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    transition: top 0.5s ease-in-out; /* Smooth transition */
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+/* When the sidebar is active (shown) */
+.side-menu.active {
+    top: 0; /* Slide down into view */
+}
+
+/* Styles for the hamburger menu */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+
+  .side-menu ul li , button{
+    margin: 20px 0px;
+    font-size: 20px;
+
 }
 
 .active{
@@ -265,7 +322,7 @@ padding-bottom: 20px;
   width: 80%;
   height: 120px;
   background-color: white;
-  box-shadow: 1px 1px 1px 1px;
+  box-shadow: 0 7px 17px rgba(0, 0, 0, 0.2);
 }
 .login-card .cards .text-area button{
     padding: 8px 15px;
@@ -314,6 +371,7 @@ footer{
     background-color: rgb(5, 64, 113);
     color: white;
     margin-top: 100px;
+    flex-wrap: wrap;
     padding-bottom: 20px;
     
 }
@@ -344,6 +402,10 @@ ul li{
 .section li{
     padding: 10px 0px 10px 10px;
     color: rgb(207, 232, 253);
+}
+ footer .section li i{
+    padding-right: 15px;
+   
 }
 .copyright{
     text-align: center;
@@ -464,7 +526,63 @@ table {
 table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+ /* media for tab */
+ @media  screen and (max-width: 1023px) {
+    .menu{
+        display: none;
+    }
+    header .hamburger {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding: 0px 20px;
 
+      }
+      .side-menu ul {
+       
+        padding-top: 2%;
+       
+    }
+    
+      .about-our div p {
+    
+        width: 85%;
+        
+    }
+    .service-section .service-name{
+        border-top: 2px solid red;
+        width: 75%;
+        margin-left: 20px;
+         padding-top: 15px;
+        height: 100px;
+    }
+    footer .section{
+        margin-top: 20px;
+        width: 90%;
+        flex-direction: column;
+        padding-left: 0px;
+        border: 1px solid;
+    }
+    footer .section img {
+        width: 20%;
+        height: 100px;
+    }
+    .login-card .cards {
+        width: 28%;
+        
+    }
+    /* other pages */
+    .admin  {
+       justify-content: center;
+    
+    }
+    .admin .black-section {
+   
+        width:60%;
+    }
+}
 @media (max-width:767px) {
     header{
         display: flex;
@@ -474,30 +592,39 @@ table {
     .menu{
         display: none;
     }
-    header .hambarger {
+    header .hamburger {
         width: 20%;
         display: flex;
         flex-direction: column;
          justify-content: center;
          align-items: center;
-         padding: 0px 20px;
+         padding: 0px 30px;
 
       }
-      header .hambarger .line{
-        margin: 5px 0px;
-        width: 35px;
-        border: 2px solid rgb(0, 0, 0);
-
-      }
-      .side-menu ul li , button{
-        margin: 20px 0px;
-        font-size: 20px;
-    
+      .hamburger .line {
+        margin: 3px 0px;
+        width: 25px;
+        
+    }
+    .hamburger.cross .line:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 5px);
+    }
+    .hamburger.cross .line:nth-child(3) {
+        transform: rotate(-45deg) translate(2px, 1px);
+    }
+      header .logo {
+        padding-left: 0px;
+       
+    }
+      .logo p {
+       
+        font-size: 25px;
+       
     }
     
     .silder-section h1{
         top: 80px;
-    font-size: 68px;
+    font-size: 48px;
        
     }
     .silder-section p{
@@ -628,6 +755,7 @@ table {
         height: 100px;
     }
    
+   
     /* Add some spacing around the table */
 
    
@@ -720,11 +848,13 @@ width: auto;
 .option-btn button{
     width: 180px;
 }
-.admin form #btn_submit {
+.admin form .btn_submit {
     width: 100%;
-margin-left: 90px;
-width: 30%;
-
+  text-align: center;
+}
+.admin form .btn_submit button {
+    width: auto;
+  
 }
 
 
@@ -747,12 +877,17 @@ span {
     width: 24rem;
     text-align: center;
 }
+.success-mg {
+    color: green;
+}
 .success-message {
     color: rgb(64, 255, 64);
 }
 .btn:hover{
     border:2px solid white;
   }
+  /*  */
+ 
 /* new */
 
 .a1 {

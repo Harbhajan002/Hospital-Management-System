@@ -67,6 +67,8 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Hospital.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
+
     <title>Patient Login</title>
     <style>
         .error-message{
@@ -86,9 +88,10 @@ else {
             <input type="text" id="name" name="patientName"  placeholder="Enter Your Name" required>
 
             <label class="filled" for="unique_id">Number</label>
-            <input type="number" id="unique_id" name="mobileno" placeholder="Number" required>
+            <input type="tel" id="unique_id" name="mobileno" maxlength="10" placeholder="Number"   required>
             
-            <button type="submit" id="btn_submit">Get Otp</button><br>
+            <p class="btn_submit"><button type="submit" id="btn_submit">Get Otp</button></p><br>
+
             <span class="msg">
             <?php if (!empty($errorMessage)) {
             echo " <p class='error-message'> $errorMessage </p>";  

@@ -70,6 +70,8 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Hospital.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
+
     <title>Patient Table</title>
     <style>
         p{
@@ -105,8 +107,8 @@ else {
             <input type="text" id="name" name="otpverify"  maxlength="6"  required>
 
            
+            <p class="btn_submit"><button type="submit" id="btn_submit">Login</button></p><br>
             
-            <button type="submit" id="btn_submit" name="get_otp" id="liveToastBtn">Get Otp</button><br>
             <span class="msg">
             <?php if (!empty($errorMessage)) {
             echo " <p class='error-message'> $errorMessage </p>";  

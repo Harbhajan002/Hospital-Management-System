@@ -41,6 +41,8 @@ if (isset($_POST['admin_name'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Admin Login</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
+
     <style>
        
     </style>
@@ -64,8 +66,8 @@ if (isset($_POST['admin_name'])) {
             <span class="error">
                 <?php ?>
             </span>
+            <p class="btn_submit"><button type="submit" id="btn_submit">Log In</button></p><br>
 
-            <button type="submit" id="btn_submit">Log In</button><br>
             <span class="msg">
                 <?php echo isset( $error_msg)?$error_msg: "";  ?>
             </span>

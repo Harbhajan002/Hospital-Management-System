@@ -34,7 +34,7 @@
                    </form>";
                     }
             }else {
-              echo "doctor not found 404!";
+              echo "<p class='error'>Doctor not available 404!</p>";
             }
           }                  
         ?>

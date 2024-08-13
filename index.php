@@ -7,8 +7,9 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="Hospital.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Patient Table</title>
+    <title>Hospital Home</title>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                 </ul>
                 
             </div>
-            <div class="hambarger" id="hambarger">
+            <div class="hamburger" id="hamburger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -136,10 +137,10 @@
         <h2>Quick Links</h2>
      
         <ul>
-           <li>HOME</li>
-           <li>BLOG</li>
-           <li>SERVICE</li>
-          <li>CONTACT</li>
+            <a href="#"><li>HOME</li></a>
+            <a href="#service"> <li>SERVICE</li></a>
+            <a href="#about"><li>ABOUT US</li></a>
+            <a href=""><li>CONTACT</li></a>
          </ul>
     </div>
     <div class="section">
@@ -168,9 +169,9 @@
     <div class="section">
        <h2>Contact Us</h2>
        <ul>
-           <li>91-464646464</li>
-           <li>admin@gmail.in</li>
-           <li>SCO 47-mumbai</li>
+           <li><i class="fa-sharp fa-solid fa-phone-volume"></i>91-464646464</li>
+           <li><i class="fa fa-sharp fa-light fa-envelope"></i>healthcare@gmail.in</li>
+           <li><i class="fa-sharp fa-solid fa-location-dot"></i>SCO 47-mumbai</li>
          </ul>
     </div>
  </footer>
@@ -186,13 +187,31 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 <script>
-  const hambarger=  document.getElementById("hambarger");
-  const side_menu=  document.getElementById("side_menu");
-  hambarger.addEventListener("click",  ()=>{
-  console.log(hambarger);
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const sideMenu = document.getElementById("side_menu");
 
-    side_menu.classList.toggle('active');
-    // side_menu.classList.toggle('view');
-  });
+    // Toggle sidebar visibility on hamburger click
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle('cross');
+        sideMenu.classList.toggle('active');
+    });
+
+    // Get all anchor tags inside the side menu
+    const menuLinks = sideMenu.querySelectorAll('a');
+    console.log(menuLinks);  // Check if it correctly selects the anchor tags
+
+    // Add click event to each anchor tag
+    menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            // Hide the sidebar after clicking a link
+            hamburger.classList.remove('cross');
+
+            sideMenu.classList.add('active');  // Use remove instead of add
+            console.log("Link clicked and sidebar hidden");
+        });
+    });
+});
+
 </script>
 </html>

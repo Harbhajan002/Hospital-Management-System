@@ -38,6 +38,7 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Hospital.css">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -89,7 +90,7 @@ table{
             <label class="filled" for="unique_id">Email</label>
             <input type="email" id="unique_id" name="email" placeholder="Email" required>
             
-            <button type="submit" id="btn_submit">Log In</button><br>
+            <p class="btn_submit"><button type="submit" id="btn_submit">Log In</button></p><br>
             <span class="msg">
             <?php if (!empty($errorMessage)) {
             echo " <span class='error-message'> $errorMessage </span>";  

@@ -39,6 +39,7 @@ if ($result->num_rows > 0) {
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Hospital.css">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
 
     <title>Doctor Login</title>
     <style>

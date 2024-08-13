@@ -32,6 +32,8 @@
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
     <title>Document</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
+
     <link rel="stylesheet" href="Hospital.css">
    <style>
    
@@ -161,9 +163,26 @@ table {
     align-items: center
 }
     @media (max-width:767px) {
+      .dashboard-header  header {
+        display: flex;
+        justify-content: space-evenly;
+    }
+         header   .logo2 {
+        padding-left: 0px;
+       
+    }
+    .logo2 img {
+    width: 50px;
+    height: 70px;
+}
+.btnn {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
         /* header section */
         .menu2{
-    width: 70%;
+    width: auto;
     display:flex;
     justify-content:end
 }

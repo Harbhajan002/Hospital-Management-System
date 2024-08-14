@@ -1,28 +1,4 @@
-<style>
-    button {
-        border: none;
-    }
 
-    #submit {
-        width: 110px;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-
-    .doctor {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-        margin: 20px;
-     
-    }
-
-</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Patient Table</title>
+    <style>
+ @media  screen and (max-width: 1023px) {
+
+    .admin .black-section {
+        padding: 25px;
+    }
+ }
+</style>
 </head>
 
 <body class="patient-page">

@@ -49,7 +49,7 @@
                    
                     
                     
-                    <li><a href="patient-login.php"><button>Book Appointment</button></a></li>
+                    <a href="patient-login.php"><li><button>Book Appointment</button></li></a>
                 </ul>
                 
     </div>

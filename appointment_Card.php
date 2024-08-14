@@ -9,8 +9,14 @@
    a{
     width:90px;
    }
-   .card-body{
-    margin-left:40px;
+   .black-slotbox .card{
+     width: 20rem;
+   }
+   @media (max-width:767px) {
+
+    .black-slotbox .card {
+    width: 100%;
+}
    }
  
 </style>
@@ -28,14 +34,14 @@
   <title>Appointment Card</title>
 </head>
 <style>
-  .result button{
+  .result a{
   width: 150px;
+  text-align: end;
   }
-  form button{
-    margin-left:50px;
-  }
+ 
 </style>
 <body class="patient-page">
+  <div class="parent">
 <div class="admin">
         <div class='result'>
          <a href="index.php"><button>Back To Home</button></a><br>
@@ -62,7 +68,7 @@
                 $patient_id=$_SESSION['patient_id'];
              
                echo"
-              <div class='card'  style='width: 20rem;'>
+              <div class='card'  ;'>
               <form action='' method='post'>
                 <div class='card-body'>
                 <h6 class='card-title'><span>Date</span> :$date $slot_time  </h6>
@@ -71,7 +77,8 @@
                 <h6 class='card-title'><span>pid </span> : $patient_id</h6>  
                 <h6 class='card-text'><span>Department</span> :$depart_naam </h6>
                 <input type='hidden' id='action' name='action' value='cancel'> 
-                  <button ' id='appointment_cancel'>Cancel</button><br>
+                 <p class='btn_submit'><button id='appointment_cancel'>Cancel</button></p>
+
                </div>
               </form> 
               </div>";
@@ -196,7 +203,7 @@
             ?>
  </div>
 
- </div>
+ </div></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
-    <title>Document</title>
+    <title>Admin Dashboard</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/lgo-removebg.png">
 
     <link rel="stylesheet" href="Hospital.css">
@@ -160,7 +160,7 @@ table {
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
     @media (max-width:767px) {
       .dashboard-header  header {
@@ -231,8 +231,8 @@ table {
         <header>
             <div class="logo2">
                 <a href="index.php"><img src="./assets/lgo-removebg.png" alt=""></a>
-                <h2>HMS   </h2>
-                <h2>Admin Dashboard</h2>
+                <h2>Admin Dashboard  </h2>
+                <!-- <h2>Dashboard</h2> -->
             </div>
             <div class="menu2">
                 <h3>Welcome

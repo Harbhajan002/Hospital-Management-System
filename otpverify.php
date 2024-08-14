@@ -28,7 +28,7 @@ if (isset($_POST['otpverify'])) {
     
     date_default_timezone_set('Asia/Kolkata'); 
     $current_Time= date("h:i:s");
-    echo "$current_Time<br>  $expire";
+    // echo "$current_Time<br>  $expire";
 //mobile number verify:::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $sql="SELECT otp_code from otp WHERE otp_code= ?";
 

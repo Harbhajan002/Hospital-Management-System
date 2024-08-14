@@ -3,7 +3,7 @@
             <th>Patient Name</th>
             <th>Gender</th>
             <th>DOB</th>
-            <th>Email</th>
+            <th>Mobile</th>
             <th>MR. No</th>
         </tr>
         <?php
@@ -19,7 +19,7 @@
             $fname=$data['fname'];
             $gender=$data['gender'];
             $dob=$data['dob'];
-            $email=$data['email'];
+            $mobile=$data['mobile'];
             $mr=$data['mr'];
            
             echo "
@@ -27,7 +27,7 @@
                     <td>$fname</td>
                     <td>$gender</td>
                     <td>$dob</td>
-                    <td>$email</td>
+                    <td>$mobile</td>
                     <td>$mr</td>
                 </tr>
                 ";

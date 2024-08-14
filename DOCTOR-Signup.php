@@ -140,13 +140,17 @@ if ($stmt->execute() ) {
 </head>
 <body class="patient-page">
   <div class="parent">
+  
     <div class="admin">
+    <div class='result'>
+         <a href="index.php"><button>Back To Home</button></a><br>
+        </div>
       <h2>Doctor Details</h2>
       <form class="doc-section" action="" method="post">
         <div class="secparent">
           <div class="a1container">
             First Name<input type="text" class="form-control" placeholder="name" name="fname" required><br>
-            Mobile No<input type="tel" class="form-control" placeholder="Number" name="mno" maxlength="15" required> <br>
+            Mobile No<input type="tel" class="form-control" placeholder="Number" name="mno" maxlength="10" required> <br>
             Email<input type="email" class="form-control" placeholder="email" name="email" required> <br>
           </div>
           <div class="a1container">
@@ -195,7 +199,6 @@ if ($stmt->execute() ) {
         </div>
         <div class="btnn">
           <button type="submit" >SIGN UP</button>
-          <a href="DOCTOR-Login.php" ><button >LOG IN</button></a><br>
         
         </div>
         <p class="success"> <?php if (!empty($success)) {

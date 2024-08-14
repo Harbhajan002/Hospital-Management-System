@@ -5,16 +5,16 @@ include("dashboard-header.php");
     <div class="left ">
         <ul>
 
-           <li><a href="DOCTOR-Signup.php"><button>Doctor Sign Up</button></a></li>
-            <li id="patient_list"><button >Patient List</button></li>
-            <li id="doctor_list"><button >Doctor List</button></li>
-            <li id="appoint_list"><a href="dashboard.php"><button>Appointments</button></a></li>
+           <li class="categories"><a href="DOCTOR-Signup.php"><button>Doctor Sign Up</button></a></li>
+            <li class="categories" id="patient_list"><button >Patient List</button></li>
+            <li class="categories" id="doctor_list"><button >Doctor List</button></li>
+            <li class="categories" id="appoint_list"><a href="dashboard.php"><button>Appointments</button></a></li>
         </ul>
     </div>
     <div class="doctor-dashboard">
 <div class="right">
 
-    <table class="table" id="history_table">
+    <table class="table" id="hospital_list">
         <tr>
             <th>Id</th>
             <th>Patient</th>
@@ -86,7 +86,7 @@ include("dashboard-header.php");
                 url: './admin/doctor_list.php', 
                 method: 'POST',
                 success: function (response) {
-                    $('#history_table').html(response);
+                    $('#hospital_list').html(response);
                 }
             });
         });
@@ -101,7 +101,7 @@ include("dashboard-header.php");
                 url: './admin/patient_list.php',
                 method: 'POST',
                 success: function (response) {
-                    $('#history_table').html(response);
+                    $('#hospital_list').html(response);
                     console.log(response);
                     
                 }

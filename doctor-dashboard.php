@@ -72,11 +72,18 @@ if ($result->num_rows > 0) {
     height: 20px;
     width: 34px;
 }
+@media  screen and (max-width: 1023px) {
+
+.doctor-dashboard .right .card1 {
+    width: 100%;
+}
+}
 @media (max-width:767px) {
 
 .doctor-dashboard{
         flex-direction: column;
-        border-radius: 5px;
+          padding:0px 40px 35px 35px;
+         border-radius: 5px;
        
     }
 }

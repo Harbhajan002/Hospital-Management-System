@@ -90,7 +90,7 @@ else {
             <label class="filled" for="unique_id">Number</label>
             <input type="tel" id="unique_id" name="mobileno" maxlength="10" placeholder="Number"   required>
             
-            <p class="btn_submit"><button type="submit" id="btn_submit">Get Otp</button></p><br>
+            <p class="btn_submit"><button type="submit" id="btn_submit">Get Otp</button></p>
 
             <span class="msg">
             <?php if (!empty($errorMessage)) {
@@ -100,7 +100,7 @@ else {
             echo "<p class='success-message'> $successMessage </p>"; 
 
            }?>
-            </span><br>
+            </span>
             <p>New Patient <a href='patient-signup.php'>Click Here</a>To Register</p>
             
 

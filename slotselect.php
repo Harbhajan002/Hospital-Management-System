@@ -1,57 +1,3 @@
-<style>
-  
-  .container {
-        display: flex;
-
-        width: 400px;
-        align-items: center;
-        justify-content: center;
-    flex-direction: column;
-    margin: 40px;
-    align-items: center;
- width: 600px;
- 
-    }
-  .min {
-    margin: 20px;
-    width: 60px;
-    border: 1px solid black;
-  }
-
-  .slots {
-    display: none;
-    /* Initially hide the slot div */
-    flex-wrap: wrap;
-    width: 350px;
-    margin: 20px;
-  }
-
-  #datetime {
-    width: 24rem;
-  }
-
-  .card1 {
-    display: flex;
-    /* flex-direction: column;/ */
-    width:24rem;
-    border-radius:10px;
-    border: 1px solid var(--bs-border-color);
-  }
-
-  .card_body {
-    margin: 10px;
-    width:auto;
-
-  }
- img{
-  width:100px;
-
- }
-  .card-body2 {
-    margin: 20px 10px 10px 10px;
-    width:70%;
-  }
-</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +49,7 @@
                       }
            
                  ?><br>
-            <div class='card1' style='width: 24rem; border:none;'>
+            <div class='card1' style=' border:none;'>
               <form action="" method="post">
               <label for="datetime">Select a date:</label>
                 <input type="date" class="form-control" id="datetime" name="datetime" required>

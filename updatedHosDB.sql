@@ -18,6 +18,7 @@ slot_id int,
 doctor_id int,
 appoint_date date,
 appoint_time varchar(255),
+status varchar(255) default "Pending",
 foreign key (patient_id) references patient (patient_id),
 foreign key (slot_id) references dateSlot (slot_id),
 foreign key (doctor_id) references doctor (doctor_id)

@@ -21,7 +21,7 @@
 
                   echo"
                   <form  action='slotselect.php' method='post'>
-                  <div class='card'  style='width: 18rem;'>
+                  <div class='card'>
                   <div class='card-body'>
                   
                     <h6 class='card-title'><span>Name</span> : ".$row['name']."</h6>

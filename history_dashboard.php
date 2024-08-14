@@ -12,6 +12,9 @@
      @media (max-width:767px) {
         .admin .black-slotbox {
         width: 100%;
+        overflow-x: auto;
+        align-items: start;
+    
      }
      }
      

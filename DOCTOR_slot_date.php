@@ -2,17 +2,23 @@
     .slotdiv{
       display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-  
-    padding: 10px;
-    margin: 20px;
     margin-top: 40px;
     }
     span{
   
     font-size: larger;
-    font-weight: 600;
+    font-weight: 500;
 }
-
+@media (max-width:767px) {
+  .slotdiv{
+      display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+    }
+   .slotdiv p{
+      display:flex;
+    }
+}
     
   </style>
   <?php

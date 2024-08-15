@@ -25,7 +25,7 @@ $(document).ready(function () {
             var date =$(this).val();
             var seleted_doctor_id ='<?php echo  $select_d_id;?>';
             $.ajax({
-                url: 'DOCTOR_slot_date.php',
+                url: 'doctor_slot_date.php',
                 method: 'POST',
                  data: {date: date , seleted_doctor_id:seleted_doctor_id},
                 success: function (response) {

@@ -226,3 +226,32 @@ select * from department ;
  desc otp;
  alter table otp add column otp_code int(10);
  drop table otp;
+ -- select * from admin;
+-- SELECT * from appointment;
+-- select * from centre_name;
+-- select * from dateslot;
+-- select * from department;
+-- select * from doctor;
+-- select * from doctor_slot_availablity;
+-- select * from otp;
+-- select * from patient;
+-- select * from unbookeddataslot;
+
+
+-- SELECT * FROM doctor JOIN department ON doctor.department_id = department.department_id WHERE department.depart_name ='Pediatrician';
+
+-- create table SlotOfWeek (
+-- slot_id int primary key auto_increment, 
+-- slot_Day VARCHAR(20) NOT NULL,
+-- time_id int,
+-- foreign key (time_id) references timeslot (time_id)
+-- );
+-- select * from SlotOfWeek;
+
+-- INSERT INTO SlotOfWeek (slot_Day, time_id) VALUES 
+-- ('Monday',1),
+--  ('Tuesday',2),
+--  ('Wednesday', 3),
+-- ('Thursday', 4),
+-- ('Friday',5),
+--  ('Saturday',6);

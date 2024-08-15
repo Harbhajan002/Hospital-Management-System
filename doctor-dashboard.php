@@ -136,7 +136,7 @@ if ($result->num_rows > 0) {
             var seleted_doctor_id ='<?php echo $doctor_ID;?>';
          console.log(seleted_doctor_id);
             $.ajax({
-                url: 'DOCTOR_slot.php',
+                url: 'doctor-slot.php',
                 method: 'POST',
                  data: {select_d_id: seleted_doctor_id},
                 success: function (response) {
@@ -149,7 +149,7 @@ if ($result->num_rows > 0) {
             console.log(typeof(seleted_doctor_id));
          
             $.ajax({
-                url: 'DOCTOR_appointments.php',
+                url: 'doctor_appointments.php',
                 method: 'POST',
                  data: {select_d_id: seleted_doctor_id},
                 success: function (response) {

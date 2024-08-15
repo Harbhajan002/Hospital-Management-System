@@ -81,7 +81,7 @@
                 <img src="./assets/hospital.jpg" alt="paitent">
                 <div class="text-area">
                     <h3>Doctor Login</h3>
-                    <button><a  href="DOCTOR-login.php">Click</a></button>
+                    <button><a  href="doctor-login.php">Click</a></button>
                 </div>
             </div>
         </div>
@@ -119,8 +119,8 @@
                 <p class="service-name"><i class="fa fa-thin fa-hand-holding-hand"></i><br><br>Trusted Tertiary Care Center</p>
                 <p class="service-name"><i class="fa-sharp fa-solid fa-heart-pulse"></i><br><br>Trusted Medical Professionals</p>
                 <p class="service-name"><i class="fa-sharp fa-solid fa-stethoscope"></i><br><br>Insurance, ECHS, ESIC, CGHS, PMJAY & More</p>
-                <p class="service-name"><i class="fa-duotone fa-solid fa-user-nurse"></i><br><br>Emergency Help Available 24/7</p>
-                <p class="service-name"><i class="fa-sharp-duotone fa-solid fa-pump-medical"></i><br><br>Emergency Help Available 24/7</p>
+                <p class="service-name"><i class="fa-duotone fa-solid fa-user-nurse"></i><br><br>Integrated healthcare services provider </p>
+                <p class="service-name"><i class="fa-sharp-duotone fa-solid fa-pump-medical"></i><br><br>Modern Technology</p>
                 <p class="service-name"><i class="fa-solid fa-truck-medical"></i><br><br>Emergency Help Available 24/7</p>
                 </div>
        </div>
@@ -169,9 +169,9 @@
     <div class="section">
        <h2>Contact Us</h2>
        <ul>
-           <li><i class="fa-sharp fa-solid fa-phone-volume"></i>91-464646464</li>
-           <li><i class="fa fa-sharp fa-light fa-envelope"></i>healthcare@gmail.in</li>
-           <li><i class="fa-sharp fa-solid fa-location-dot"></i>SCO 47-mumbai</li>
+           <li><i class="fa-sharp fa-solid fa-phone-volume"></i>91-8816829305</li>
+           <li><i class="fa fa-sharp fa-light fa-envelope"></i>healthcare@gmail.com</li>
+           <li><i class="fa-sharp fa-solid fa-location-dot"></i>SCO Sector 47-New Delhi</li>
          </ul>
     </div>
  </footer>

@@ -5,7 +5,7 @@ include("dashboard-header.php");
     <div class="left ">
         <ul>
 
-           <li class="categories"><a href="DOCTOR-Signup.php"><button>Doctor Sign Up</button></a></li>
+           <li class="categories"><a href="doctor-signup.php"><button>Doctor Sign Up</button></a></li>
             <li class="categories" id="patient_list"><button >Patient List</button></li>
             <li class="categories" id="doctor_list"><button >Doctor List</button></li>
             <li class="categories" id="appoint_list"><a href="dashboard.php"><button>Appointments</button></a></li>

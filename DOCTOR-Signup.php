@@ -215,7 +215,7 @@ if ($stmt->execute() ) {
     $('#centreName').on('change', function () {
       var centre_id = $(this).val();
       console.log("centre_id", centre_id);
-      $.post('DOCTOR-depart.php', { C_ID: centre_id }, function (response) {
+      $.post('doctor-depart.php', { C_ID: centre_id }, function (response) {
         $('#department').html(response);
 
       });

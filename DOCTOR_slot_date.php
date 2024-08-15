@@ -26,6 +26,7 @@ include ("connect.php");
 if(isset($_POST['seleted_doctor_id'])) {
     $D_ID = $_POST['seleted_doctor_id'];
     $D_Date=$_POST['date'];
+    // echo $D_Date ,$D_ID;
     $timestamp = strtotime($D_Date);
     $dayOfWeek = date("l", $timestamp);
     $selectUpdatedSlot="SELECT * from doctor_slot_availablity 

@@ -28,7 +28,7 @@
                     <h6 class='card-title'><span>Email</span> : ".$row['email']."</h6>
                     <h6 class='card-title'><span>Consultant Fees</span> : ".$row['fees']."</h6>         
                     <h6 class='card-text'><span>Department</span> : ".$row['depart_name']."</h6>
-                    <a href='slotselect.php ?doc_ID=$doctor_id' id='btn' class='btn btn-primary'>select date</a>
+                    <a href='slotselect.php?doc_ID=$doctor_id' id='btn' class='btn btn-primary'>select date</a>
                    </div>
                    </div>
                    </form>";

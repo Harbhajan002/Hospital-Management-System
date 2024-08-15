@@ -81,6 +81,8 @@
                   data: { doctor_Id: doctorId, Date:selectedDate },
                   success: function (response) {
                     $('#slots').html(response);
+                    console.log(response);
+                    
                   }
                 });
               });

@@ -82,7 +82,7 @@ if ($result->num_rows > 0) {
 
 .doctor-dashboard{
         flex-direction: column;
-          padding:0px 40px 35px 35px;
+          padding:5px 40px 35px 35px;
          border-radius: 5px;
        
     }
@@ -110,10 +110,12 @@ if ($result->num_rows > 0) {
               <button  id='doctor_slot'>Change slot</button>
             
              <button  id='appointments'>Appointments</button>
-          
-             <a href='history_dashboard.php? doctor-id=$docid '> <button  id='appointments'>History</button></a>
-
-             </div>";
+               "; ?>
+             <a href='history_dashboard.php?doctor-id=<?php echo $docid; ?>'> 
+                <button  id='appointments'>History</button></a>
+              <?php
+              echo 
+             "</div>";
 
             }
            ?>

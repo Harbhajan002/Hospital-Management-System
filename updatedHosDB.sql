@@ -1,4 +1,5 @@
-
+create database hospital;
+use hospital;
 create table admin (
 admin_id int(20) primary key AUTO_INCREMENT ,
 name varchar(50), 
@@ -40,12 +41,12 @@ insert into centre_name(name, address,mobile,email,logo) values
 ('Gachibowli','555 Cedar Gachibowli, New zealand',443454646,'sunset@gmail.com',load_file('path_to_your_image/logo.png')),
 ('Kompally','555 Cedar Kompally, New zealand',1234567890,'ankura@gmail.com',load_file('path_to_your_image/logo.png'));
 
-create table dateSlot (
+create table dateslot (
 slot_id int primary key auto_increment, 
 slot_Day VARCHAR(20) NOT NULL, 
 slot_Time JSON);
 
-INSERT INTO dateSlot (slot_Day, slot_Time) VALUES 
+INSERT INTO dateslot (slot_Day, slot_Time) VALUES 
 ('Monday','["09:00 AM", "09:05 AM", "09:10 AM", "09:15 AM", "09:20 AM", "01:00 PM", "03:00"]'),
 ('Tuesday','["09:00 AM","10:00 AM","10:30 AM","11:00 AM","11:20 AM","04:00 PM", "08:00 PM"]'),
 ('Wednesday', '["09:00 AM","10:30 AM","11:30 PM","11:40 AM","12:20 PM", "05:00 PM"]'),
@@ -121,6 +122,7 @@ create table patient (
  pincode varchar(50),
  mr varchar(50) unique
  );
+ select * from patient;
  
  create table unBookeddataslot(
  id int primary key auto_increment,

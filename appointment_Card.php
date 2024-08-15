@@ -214,7 +214,7 @@ $(document).ready(function () {
     var slotValue = $(this).val();
     // console.log(slotValue);
     $.ajax({
-      url: 'DOCTOR_appointments.php',
+      url: 'doctor_appointments.php',
       method: 'POST',
       data: { slot: slotValue },
       success: function(response) {
@@ -231,6 +231,8 @@ $(document).ready(function () {
   var selectedDate=$("#D_Date").val();
 
     $(document).on('click', '#appointment_cancel',  function (){
+      console.log("click to cancle");
+      
         var did=<?php echo json_encode($doctor_id);?>;
         var pid=<?php  echo json_encode($patient_id);?>;
         var date=<?php  echo json_encode($date);?>;
@@ -246,7 +248,7 @@ $(document).ready(function () {
                   success:function (res) {
                   $('#cancel').html(res);
                     console.log(res);
-                    window.location.href = 'index.php';
+                    // window.location.href = 'index.php';
                   }
                 });
 

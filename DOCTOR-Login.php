@@ -68,6 +68,11 @@ if ($result->num_rows > 0) {
 table{
     border:1px solid;
 }
+@media (max-width:767px) {
+    .result {
+    margin-top: 10px;
+}
+}
 
     </style>
 </head>
@@ -105,7 +110,7 @@ table{
         </form>
         <?php if (!empty($successMessage)) {
                     //verify mobile number with patient table 
-              echo "<br>
+              echo "<br><br>
               <div class='result'>
              <a href='doctor-dashboard.php? id=$doctor_ID'><button >View Dashboard</button></a>
              </div>";

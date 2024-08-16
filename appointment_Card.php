@@ -210,26 +210,24 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
 $(document).ready(function () {
-  $(".slot").each(function() {
-    var slotValue = $(this).val();
-    // console.log(slotValue);
-    $.ajax({
-      url: 'doctor_appointments.php',
-      method: 'POST',
-      data: { slot: slotValue },
-      success: function(response) {
-        // Handle successful response
-        // console.log("AJAX request successful. Response:", response);/
-        // console.log("Data sent:", slotValue);
-      },
-      error: function(xhr, status, error) {
-        // Handle errors
-        console.error("AJAX request failed:", status, error);
-      }
-    });
-  });
-  var selectedDate=$("#D_Date").val();
+  // $(".slot").each(function() {
+  //   var slotValue = $(this).val();
+  //   console.log("slotValue",slotValue);
+  //   $.ajax({
+  //     url: 'doctor_appointments.php',
+  //     method: 'POST',
+  //     data: { slot: slotValue },
+  //     success: function(response) {
+  //        console.log("AJAX request successful. Response:", response);
+  //     },
+  //     error: function(xhr, status, error) {
+  //       // Handle errors
+  //       console.error("AJAX request failed:", status, error);
+  //     }
+  //   });
+  // });
 
+    
     $(document).on('click', '#appointment_cancel',  function (){
       console.log("click to cancle");
       
@@ -265,7 +263,6 @@ $(document).ready(function () {
                 });
         console.log("error");
       }
-      // $('#appointment_form').submit(); 
       
     })
 });

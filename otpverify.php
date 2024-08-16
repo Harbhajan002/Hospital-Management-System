@@ -30,10 +30,10 @@ if (isset($_POST['otpverify'])) {
     $current_Time= date("h:i:s");
     // echo "$current_Time<br>  $expire";
 //mobile number verify:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-$sql="SELECT otp_code from otp WHERE otp_code= ?";
+$sql="SELECT otp_code from otp WHERE otp_code= ? and expire_time = ?";
 
 $statement=$connect->prepare($sql);
-$statement->bind_param("s",$otpverify);
+$statement->bind_param("ss",$otpverify, $expire);
 $statement->execute();
 $result =$statement->get_result();
 

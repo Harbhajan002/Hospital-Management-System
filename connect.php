@@ -1,9 +1,9 @@
 <?php
 
   // $host='sql110.infinityfree.com';
-  // $db_name='if0_37107241_hospital';
-  // $user='if0_37107241';
-  // $password='harbhajan172002';
+  // $db_name='if0_37115909_hospital';
+  // $user='if0_37115909';
+  // $password='AkRBIH401O';
   $host='localhost';
   $db_name='hospital';
   $user='root';

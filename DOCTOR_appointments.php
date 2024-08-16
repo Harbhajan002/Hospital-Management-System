@@ -22,12 +22,7 @@
     </tr>
 <?php 
 include ("connect.php");
-// if(isset($_POST['slot'])) {
-//   $slots = $_POST['slot']; // Get the array of time slots
-//   print_r($slots);
-// } else {
-//   echo "No slots received";
-// }
+
 
 if(isset($_POST['select_d_id'])) {
   $status_point = "Pending";
@@ -69,7 +64,7 @@ echo "
     <td >$status </td>
     <td> 
     <div class='result'><button id='cancle'>Cancel</button> 
-<button id='finish'>Finish</button> </div>
+       <button id='finish'>Finish</button> </div>
 
 </td>
 </tr>";
@@ -85,11 +80,10 @@ echo "
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script> 
 $(document).ready(function () {
+  // show tr
   $(document).on('click', 'tr', function () {
     var appointId = $(this).attr('data-id');
-    // console.log("appoint ID:", appointId);
-    // var popup = document.getElementById("myPopup");
-    //  popup.classList.toggle("show");
+    console.log("appoint ID:", appointId);
   });
   // finish
     $(document).on('click', '#finish',  function (){

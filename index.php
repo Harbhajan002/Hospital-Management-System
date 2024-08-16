@@ -24,7 +24,7 @@
                     <a href="#"><li>HOME</li></a>
                     <a href="#service"> <li>SERVICE</li></a>
                     <a href="#about"><li>ABOUT US</li></a>
-                    <a href=""><li>CONTACT</li></a>
+                    <a href="#contact_us"><li>CONTACT</li></a>
                    
                     
                     
@@ -45,7 +45,7 @@
                     <a href="#"><li>HOME</li></a>
                     <a href="#service"> <li>SERVICE</li></a>
                     <a href="#about"><li>ABOUT US</li></a>
-                    <a href=""><li>CONTACT</li></a>
+                    <a href="#contact_us"><li>CONTACT</li></a>
                    
                     
                     
@@ -140,7 +140,7 @@
             <a href="#"><li>HOME</li></a>
             <a href="#service"> <li>SERVICE</li></a>
             <a href="#about"><li>ABOUT US</li></a>
-            <a href=""><li>CONTACT</li></a>
+            <a href="#contact_us"><li>CONTACT</li></a>
          </ul>
     </div>
     <div class="section">
@@ -166,7 +166,7 @@
   </ul>
     </div>
   
-    <div class="section">
+    <div id="contact_us" class="section" >
        <h2>Contact Us</h2>
        <ul>
            <li><i class="fa-sharp fa-solid fa-phone-volume"></i>91-8816829305</li>
@@ -175,7 +175,7 @@
          </ul>
     </div>
  </footer>
- <div class="copyright">
+ <div class="copyright" >
  <p>Copyright ©2023  Hospital. All Rights Reserved Disclaimer.</p>
  </div>
  
